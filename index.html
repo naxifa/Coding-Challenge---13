@@ -3,15 +3,40 @@
 <html lang="en">
 
 <style>
+    /* Basic styling for the entire page */
     body {
+        font-family: Arial, sans-serif;
+        text-align: center;
         background-color: #f6cbb9;
+        margin: 0;
+        padding: 10px;
     }
 
     header {
-      display: flex;
-      justify-content: center;   /* Center horizontally */
-      align-items: center;       /* Center vertically */
-      height: 350px;             /* Height for vertical centering */
+        margin-bottom: 20px;
+    }
+
+    /* Product container: center content and add spacing */
+    #product-container {
+        display: inline-block;
+        text-align: left;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    /* Basic styling for each product card */
+    .product {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background-color: #fff;
+    }
+
+    /* Product image styling */
+    .product img {
+        max-width: 100%;
+        border-radius: 5px;
     }
 </style>
 
