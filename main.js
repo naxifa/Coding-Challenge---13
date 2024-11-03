@@ -5,7 +5,7 @@ const fetchAPI = async function (){
     try{
         const res = await fetch ("https://www.course-api.com/javascript-store-products");
         if (!res.ok) {
-            throw new Error("Failed to fetch product data!");
+            throw new Error("Failed to fetch product data");
         }
 
             const data = await res.json();
@@ -16,10 +16,11 @@ const fetchAPI = async function (){
 
 
 
-// Task 4 - Handle Errors Gracefully
-    // Display a user-friendly error message on the page
+// Task 4 - Handle Errors
+
+    // user-friendly error message 
     document.getElementById("product-container").innerHTML = `
-        <p">Failed to load products. Please try again later.</p>`;
+        <p">Error loading products. Please try again later.</p>`;
     }
     };
 
@@ -29,31 +30,33 @@ const fetchAPI = async function (){
 
 const displayProducts = (products) => {
     const productContainer = document.getElementById("product-container");
-    productContainer.innerHTML = ""; // Clear any existing content
+
+    let productHTML = ""; //  empty string to hold the HTML
 
     products.forEach(product => {
         // Destructure necessary product details
-        const { company, name: productName } = product.fields;
-        const price = (product.fields.price / 100).toFixed(2); // Convert to dollars
-        const imgUrl = product.fields.image[0].url;
+        const { company, name: productName, price, image } = product.fields;
+        const productPrice = (price / 100).toFixed(2); // Convert to dollars
+        const imgUrl = image[0].url;
 
-        // Create HTML structure for each product
-        const productElement = document.createElement("div");
-        productElement.classList.add("product");
+        // HTML for each product and add it to the productHTML string
+        productHTML += `
+            <div class="product">
 
-        productElement.innerHTML = `
-            <img src="${imgUrl}" alt="${productName}">
-            <h2>${productName}</h2>
-            <p>Company: ${company}</p>
-            <p>Price: $${price}</p>
+                <img src="${imgUrl}" alt="${productName}">
+                <h2>${productName}</h2>
+                <p>Company: ${company}</p>
+                <p>Price: $${productPrice}</p>
+                
+            </div>
         `;
-
-        // Append product element to the container
-        productContainer.appendChild(productElement);
     });
+
+    // Setting the innerHTML of productContainer to the built HTML string
+    productContainer.innerHTML = productHTML;
 };
 
-
+// To start the fetch process
 fetchAPI();
 console.log("Loading products...");
 
