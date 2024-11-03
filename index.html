@@ -7,20 +7,22 @@
     body {
         font-family: Arial, sans-serif;
         text-align: center;
-        background-color: #f6cbb9;
+        background-color: #e8cbbf;
         margin: 0;
         padding: 10px;
     }
 
+    /* space below the header */
     header {
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
-    /* Product container: center content and add spacing */
+    /* Product container: center content and display products in a row */
     #product-container {
-        display: inline-block;
-        text-align: left;
-        max-width: 600px;
+        display: flex;          
+        flex-wrap: wrap;        
+        gap: 20px;               
+        justify-content: center;
         margin-top: 20px;
     }
 
@@ -29,8 +31,9 @@
         border: 1px solid #ddd;
         border-radius: 5px;
         padding: 10px;
-        margin-bottom: 20px;
+        width: 180px;            
         background-color: #fff;
+        text-align: center;
     }
 
     /* Product image styling */
@@ -43,8 +46,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Product Store</title>
 </head>
 
 <body>
@@ -58,4 +59,5 @@
 
   <script src="main.js"></script>
 </body>
+
 </html>
